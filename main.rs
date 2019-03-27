@@ -145,7 +145,9 @@ impl Person{
           deleteFather = true;}
         else if Person::contains(myFather, exCom){Person::delete(myFather, exCom);}
       }
-      if deleteFather == true {self.father = None;}
+      if deleteFather == true {
+        self.father = None;
+      println!("Delete completed");}
 
       //figure out if we need to delte mother
         let mut deleteMother = false;
@@ -153,7 +155,9 @@ impl Person{
         if exCom == myMother.Name{deleteMother = true;}
         else if Person::contains(myMother, exCom){Person::delete(myMother, exCom);}
       }
-      if deleteMother == true {self.mother = None;}
+      if deleteMother == true {
+        self.mother = None;
+        println!("Delete completed");}
     }
     }
     else{println!("Name not found");}
