@@ -17,6 +17,12 @@ let mut root = Person{
     let mut input = String::new();
     io::stdin().read_line(&mut input)
       .expect("Couldn't read line");
+    
+    //check if input starts with whitespace
+    if input.starts_with(" ") {
+      println!("Invalid command");
+      continue;
+    }
 
     let mut inputSplit = input.split_whitespace();
     let firstWord = inputSplit.next();
