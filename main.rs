@@ -8,6 +8,7 @@ fn main() {
     .expect("Couldn't read line");
 firstPerson = firstPerson.trim().to_string(); //get rid of newLine
 
+
 let mut root = Person{
   Name: firstPerson, mother: None, father: None};
 
@@ -31,7 +32,10 @@ let mut root = Person{
        if let Some(parent) = inputSplit.next(){
         if let Some(relation) = inputSplit.next(){
           if let Some(child) = inputSplit.next(){
-            Person::add(&mut root, parent, relation, child);
+            if let Some(invalid) = inputSplit.next(){
+              println!("Invalid command");
+            }
+            else{Person::add(&mut root, parent, relation, child);}
           }
           else{println!("Invalid command")}
         }
@@ -48,7 +52,10 @@ let mut root = Person{
   //DELETE
     else if firstWord == Some("delete"){
       if let Some(exCom) = inputSplit.next(){
-        Person::delete(&mut root, exCom);
+        if let Some(invalid) = inputSplit.next(){
+          println!("Invalid command")
+        }
+        else{Person::delete(&mut root, exCom);}
       }
       else{println!("Invalid command")}
     }
